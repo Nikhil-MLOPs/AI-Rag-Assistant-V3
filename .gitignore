@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environment
+.venv/
+
+# Environment variables
+.env
+
+# Ignore data directory
+data/
+data/golden/
+
+# Re-allow traversal into data
+!data/
+
+# Ignore raw data files
+data/raw/*
+
+# Re-allow traversal into data/raw
+!data/raw/
+
+# Allow DVC metadata files anywhere
+!data/**/*.dvc
+
+# Logs
+logs/
+
+# Pytest
+.pytest_cache/
+
+# OS
+.DS_Store
+
+# Chroma runtime cache (not embeddings output)
+.chroma/
+
+# MLflow local artifacts (remote tracked via DagsHub)
+mlruns/
