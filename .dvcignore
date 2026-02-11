@@ -1,0 +1,21 @@
+# Python-specific
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments and packages
+.venv/
+*.egg-info/
+dist/
+build/
+
+# UV-specific caches
+.uv_cache/
+.pytest_cache/
+
+# Logs and temporary files
+logs/
+tmp/
+.temp/
+*.log
