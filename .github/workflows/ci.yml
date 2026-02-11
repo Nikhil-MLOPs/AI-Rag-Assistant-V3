@@ -34,21 +34,29 @@ jobs:
           uv pip install "dvc[s3]"
 
       - name: Configure DVC credentials (DagsHub)
-        if: ${{ env.DAGSHUB_TOKEN != '' }}
         shell: bash
         env:
           DAGSHUB_TOKEN: ${{ secrets.DAGSHUB_TOKEN }}
         run: |
           set -e
-          echo "Configuring DVC remote..."
-          uv run dvc remote modify dagshub --local access_key_id "${DAGSHUB_TOKEN}"
-          uv run dvc remote modify dagshub --local secret_access_key "${DAGSHUB_TOKEN}"
+
+          if [ -n "$DAGSHUB_TOKEN" ]; then
+            echo "Configuring DVC remote..."
+
+            uv run dvc remote add -d -f dagshub s3://dvc
+            uv run dvc remote modify dagshub endpointurl https://dagshub.com/Nikhil-MLOPs/AI-Rag-Assistant-V3.s3
+
+            uv run dvc remote modify dagshub --local access_key_id "$DAGSHUB_TOKEN"
+            uv run dvc remote modify dagshub --local secret_access_key "$DAGSHUB_TOKEN"
+          else
+            echo "DAGSHUB_TOKEN not set — skipping DVC configuration."
+          fi
 
       - name: Pull DVC data
         shell: bash
         run: |
           set -e
-          STATUS=$(uv run dvc status --cloud || true)
+          STATUS=$(uv run dvc status --cloud || echo "no-data")
           echo "$STATUS"
 
           if echo "$STATUS" | grep -q "new"; then
@@ -60,4 +68,4 @@ jobs:
 
       - name: Run tests
         run: |
-          uv run pytest
+          uv run pytest -q
