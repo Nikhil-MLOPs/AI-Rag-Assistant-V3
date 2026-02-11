@@ -33,3 +33,23 @@ stages:
       hash: md5
       md5: 6f3c2c7dac5e307b2db0ea3d4f460b21
       size: 18488641
+  embeddings:
+    cmd: python -m src.embeddings.embed
+    deps:
+    - path: data/processed/chunks/chunks.jsonl
+      hash: md5
+      md5: 6f3c2c7dac5e307b2db0ea3d4f460b21
+      size: 18488641
+    - path: src/embeddings/embed.py
+      hash: md5
+      md5: 019f23af128e1a9bc5fbfcd6459c27eb
+      size: 1618
+    outs:
+    - path: data/embeddings/embeddings.npy
+      hash: md5
+      md5: 2de0650e9c64d758e48b2c8a2b8448c7
+      size: 36828800
+    - path: data/embeddings/metadata.json
+      hash: md5
+      md5: 6a89ec491fa3419ccb4ad60d6d60c1d0
+      size: 2955135
