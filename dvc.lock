@@ -13,8 +13,7 @@ stages:
       md5: 6aa767035aafbf8ef33a79236207e180
       size: 1924
     outs:
-    - path: data/processed/pages
+    - path: data/processed/pages/pages.jsonl
       hash: md5
-      md5: 9e2178803f8b43edf0b1da0a4dfb2bb8.dir
+      md5: d5176791edf4f4dbfdaaa8e486432eee
       size: 16847283
-      nfiles: 1
