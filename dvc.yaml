@@ -23,3 +23,13 @@ stages:
     outs:
       - data/embeddings/embeddings.npy
       - data/embeddings/metadata.json
+
+  vector_store:
+    cmd: python -m src.embeddings.store
+    deps:
+      - src/embeddings/store.py
+      - data/embeddings/embeddings.npy
+      - data/embeddings/metadata.json
+      - data/processed/chunks/chunks.jsonl
+    outs:
+      - data/chroma_db

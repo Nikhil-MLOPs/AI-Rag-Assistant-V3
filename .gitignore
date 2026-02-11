@@ -24,6 +24,9 @@ data/raw/*
 # Allow DVC metadata files anywhere
 !data/**/*.dvc
 
+# Chroma vector store
+data/chroma_db/
+
 # Logs
 logs/
 

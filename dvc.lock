@@ -53,3 +53,28 @@ stages:
       hash: md5
       md5: 6a89ec491fa3419ccb4ad60d6d60c1d0
       size: 2955135
+  vector_store:
+    cmd: python -m src.embeddings.store
+    deps:
+    - path: data/embeddings/embeddings.npy
+      hash: md5
+      md5: 2de0650e9c64d758e48b2c8a2b8448c7
+      size: 36828800
+    - path: data/embeddings/metadata.json
+      hash: md5
+      md5: 6a89ec491fa3419ccb4ad60d6d60c1d0
+      size: 2955135
+    - path: data/processed/chunks/chunks.jsonl
+      hash: md5
+      md5: 6f3c2c7dac5e307b2db0ea3d4f460b21
+      size: 18488641
+    - path: src/embeddings/store.py
+      hash: md5
+      md5: 522fad19aaa963ae05e5d6346f3c36bd
+      size: 2190
+    outs:
+    - path: data/chroma_db
+      hash: md5
+      md5: a91ad88b4e3a838c3f9cb052332ca59f.dir
+      size: 196317380
+      nfiles: 6
