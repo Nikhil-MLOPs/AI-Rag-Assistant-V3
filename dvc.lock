@@ -17,3 +17,19 @@ stages:
       hash: md5
       md5: d5176791edf4f4dbfdaaa8e486432eee
       size: 16847283
+  cleaning:
+    cmd: python -m src.cleaning.clean
+    deps:
+    - path: data/processed/pages/pages.jsonl
+      hash: md5
+      md5: d5176791edf4f4dbfdaaa8e486432eee
+      size: 16847283
+    - path: src/cleaning/clean.py
+      hash: md5
+      md5: f00c7921cb4f6f895ad662680e2ea79e
+      size: 10290
+    outs:
+    - path: data/processed/chunks/chunks.jsonl
+      hash: md5
+      md5: 6f3c2c7dac5e307b2db0ea3d4f460b21
+      size: 18488641
