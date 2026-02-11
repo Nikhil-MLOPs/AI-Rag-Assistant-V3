@@ -28,8 +28,10 @@ stages:
     cmd: python -m src.embeddings.store
     deps:
       - src/embeddings/store.py
+      - configs/embeddings.yaml
       - data/embeddings/embeddings.npy
       - data/embeddings/metadata.json
       - data/processed/chunks/chunks.jsonl
     outs:
-      - data/chroma_db
+      - data/chroma_db:
+          cache: false

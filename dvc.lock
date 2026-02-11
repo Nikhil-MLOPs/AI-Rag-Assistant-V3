@@ -56,6 +56,10 @@ stages:
   vector_store:
     cmd: python -m src.embeddings.store
     deps:
+    - path: configs/embeddings.yaml
+      hash: md5
+      md5: a0983990f8b6c409c1450bdf233e0619
+      size: 66
     - path: data/embeddings/embeddings.npy
       hash: md5
       md5: 2de0650e9c64d758e48b2c8a2b8448c7
@@ -70,11 +74,11 @@ stages:
       size: 18488641
     - path: src/embeddings/store.py
       hash: md5
-      md5: 522fad19aaa963ae05e5d6346f3c36bd
-      size: 2190
+      md5: 14e545c8d1bfc48d0c79bb7da7edcc70
+      size: 2168
     outs:
     - path: data/chroma_db
       hash: md5
-      md5: a91ad88b4e3a838c3f9cb052332ca59f.dir
-      size: 196317380
+      md5: 1a35a537a4d254fe77d696a06f254b7e.dir
+      size: 196427972
       nfiles: 6

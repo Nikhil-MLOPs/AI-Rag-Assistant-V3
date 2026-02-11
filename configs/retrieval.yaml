@@ -1,0 +1,25 @@
+dense:
+  collection_name: "document_embeddings"
+  persist_directory: "data/chroma_db"
+  top_k: 20
+
+sparse:
+  enabled: true
+  top_k: 20
+
+hybrid:
+  alpha: 0.6
+  fusion_type: "weighted"
+
+reranker:
+  enabled: true
+  model_name: "cross-encoder/ms-marco-MiniLM-L-6-v2"
+  top_k: 5
+
+memory:
+  max_turns: 10
+
+llm:
+  model: "qwen2.5:1.5b"
+  temperature: 0.2
+  streaming: true

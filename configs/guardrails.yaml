@@ -1,0 +1,16 @@
+medical_guardrails:
+  require_citations: true
+  min_citation_count: 1
+  refusal_on_no_context: true
+  refusal_on_low_confidence: true
+  confidence_threshold: 0.35
+  emergency_keywords:
+    - "suicide"
+    - "kill myself"
+    - "overdose"
+    - "heart attack"
+    - "stroke"
+
+explainability:
+  include_retrieved_chunks: true
+  include_scores: true
